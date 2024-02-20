@@ -1,0 +1,10 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "version": "0.2",
+  "gitignoreRoot": ".",
+  "useGitignore": true,
+  "language": "en",
+  "dictionaries": ["typescript", "node", "html", "css", "npm"],
+  "ignorePaths": ["node_modules", "*lock.yaml", "*.svg"],
+  "words": ["driveco"]
+}
