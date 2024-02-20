@@ -2,6 +2,8 @@
 
 This app aims to list given charge-boxes with location & details.
 
+> More detailed specs in [specifications PDF](./docs/specifications.pdf).
+
 Focus is made on frontend-related code, development environment & tooling.
 
 ## Install requirements
