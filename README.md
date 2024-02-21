@@ -6,6 +6,9 @@ This app aims to list given charge-boxes with location & details.
 
 Focus is made on frontend-related code, development environment & tooling.
 
+Repository is made in monorepo with frontend, backend and shared packages.
+Mocked backend can be found in backend package.
+
 ## Install requirements
 
 ### Node version
@@ -32,18 +35,25 @@ pnpm install
 
 ```
 pnpm dev
+
+# or frontend only
+pnpm -F=./frontend dev
 ```
 
 ## Build
 
 ```
 pnpm build
+
+# or frontend only
+pnpm -F=./frontend build
 ```
 
 You can also preview your build.
 
 ```
-pnpm preview
+# frontend only
+pnpm -F=./frontend preview
 ```
 
 ## Checks
