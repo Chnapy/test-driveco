@@ -2,7 +2,7 @@
 
 This app aims to list given charge-boxes with location & details.
 
-> More detailed specs in [specifications PDF](./docs/specifications.pdf).
+**Checkout detailed specs in [specifications doc](./docs/specifications.md).**
 
 Focus is made on frontend-related code, development environment & tooling.
 
