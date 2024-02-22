@@ -34,18 +34,27 @@ pnpm install
 ## Dev
 
 ```
+# first build shared package
+pnpm -F=./shared build
+
+# run all dev once
 pnpm dev
 
-# or frontend only
+# or a single package only
 pnpm -F=./frontend dev
 ```
+
+> Frontend package depends on backend to work.
+
+> Shared package should be built before any dev
 
 ## Build
 
 ```
+# run all build once
 pnpm build
 
-# or frontend only
+# or a single package only
 pnpm -F=./frontend build
 ```
 
@@ -65,3 +74,37 @@ Each "check" command begins with `c:`:
 - `pnpm c:format` - Check format using Prettier, with auto-fix variant `c:format:fix`
 - `pnpm c:spell` - Check spelling using CSpell;
 - `pnpm c:test` - Check tests using Jest;
+
+## What remains to do
+
+Because of time concerns no big efforts were done on some parts.
+
+### Tests
+
+Some test examples were done using dependency injections (hooks & component).
+Checkout files:
+
+- `frontend/src/components/charge-box-card/hooks/use-charge-box-distance.test.ts`
+- `frontend/src/components/charge-box-card/hooks/use-charge-box-gmaps-href.test.ts`
+- `frontend/src/components/charge-box-card/items/charge-box-map-button.test.tsx`
+
+More tests can be done, following these examples.
+Also storybook can be used more deeply to enforce testing.
+
+### Docker & environments
+
+A lot remains to do here:
+
+- use of devcontainers (https://containers.dev/) instead of `nvm`;
+- use of Docker images for each environments (dev, stage, production for example);
+- use of the same images in CI/CD process;
+
+You can still see an example in one of my personal project: https://github.com/Chnapy/bloup
+
+### Data mocking
+
+Frontend should be testable without any backend, mocking its data using for example `msw`.
+
+### Renaming
+
+"frontend/backend/shared" are too generic & should be renamed, for example "web/api-chargebox/api-chargebox-sdk".

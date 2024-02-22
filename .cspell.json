@@ -5,6 +5,13 @@
   "useGitignore": true,
   "language": "en",
   "dictionaries": ["typescript", "node", "html", "css", "npm"],
-  "ignorePaths": ["node_modules", "*lock.yaml", "*.svg"],
-  "words": ["driveco"]
+  "ignorePaths": ["node_modules", "*lock.yaml", "*.svg", "*.stories.*"],
+  "words": [
+    "driveco",
+    "chargebox",
+    "languagedetector",
+    "gmap",
+    "gmaps",
+    "zipcode"
+  ]
 }

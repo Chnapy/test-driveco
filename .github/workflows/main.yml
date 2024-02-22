@@ -1,0 +1,59 @@
+name: Main workflow - CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  checks:
+    name: Check - Format / Lint / Spell / Type / Test / Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+
+      - uses: pnpm/action-setup@v3
+        name: Install pnpm
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Check - Format
+        run: pnpm c:format
+
+      - name: Check - Lint
+        run: pnpm c:lint
+
+      - name: Check - Spell
+        run: pnpm c:spell
+
+      - name: Check - Type
+        run: pnpm c:type
+
+      - name: Check - Test
+        run: pnpm c:test
+
+      - name: Build
+        run: pnpm build

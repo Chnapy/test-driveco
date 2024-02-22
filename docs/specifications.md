@@ -4,7 +4,7 @@
 
 [Main specifications document](./specifications-document.pdf)
 
-The app can be resumed in one main list of data (chargebox informations).
+The app can be resumed in one main list of data (chargebox informations, 25 items).
 
 This list is defined by columns in this order:
 
