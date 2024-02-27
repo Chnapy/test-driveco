@@ -2,10 +2,13 @@ import distanceFrom from "distance-from";
 import React from "react";
 import { chargeBoxHooks } from "../provider/hooks/charge-box-hooks.ts";
 
+const getCurrentPositionDefault: typeof navigator.geolocation.getCurrentPosition =
+  (...params) => navigator.geolocation.getCurrentPosition(...params);
+
 export const useChargeBoxDistance = (
   { useChargeBoxLocation, getCurrentPosition } = {
     useChargeBoxLocation: chargeBoxHooks.useLocation,
-    getCurrentPosition: navigator.geolocation.getCurrentPosition,
+    getCurrentPosition: getCurrentPositionDefault,
   },
 ) => {
   const [distanceInKm, setDistanceInKm] = React.useState<string>();
